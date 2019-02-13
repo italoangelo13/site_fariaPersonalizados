@@ -57,13 +57,13 @@
         <section class="row">
             <div class="col-lg-3">
                 <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Ffariapersonalizados&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=951939724858826"
-                    width="340" height="500" style="border:1px lightgray solid;overflow:hidden" scrolling="no" frameborder="0"
-                    allowTransparency="true" allow="encrypted-media"></iframe>
+                    width="340" height="500" style="border:1px lightgray solid;overflow:hidden" scrolling="no"
+                    frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
             </div>
             <div class="col-lg-9">
                 <div id="map" style="height: 500px;"></div>
             </div>
-            
+
         </section>
 
 
@@ -104,12 +104,16 @@
         var map;
 
         function initMap() {
+            var myLatLng = {lat: -19.868114, lng: -43.772527};
             map = new google.maps.Map(document.getElementById('map'), {
-                center: {
-                    lat: -19.868114,
-                    lng: -43.772527
-                },
-                zoom: 8
+                center: myLatLng,
+                zoom: 14
+            });
+
+            var marker = new google.maps.Marker({
+                position: myLatLng,
+                map: map,
+                title: 'Faria Personalizados'
             });
         }
     </script>
