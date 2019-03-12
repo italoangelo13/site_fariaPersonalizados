@@ -197,7 +197,65 @@
         </section>
 
 
-        <footer id="footer" class="row bg-roxo" style="margin-top: 20px">
+
+        <!--Marketing Promocional-->
+        <div class="row alert-secondary" style="margin-top: 15px;">
+            <div class="col-lg-12 text-center">
+                <h1 class="display-4">Marketing Promocional</h1>
+            </div>
+        </div>
+        <div class="row" style="background: url('assets/img/bg_mkt_promo.jpg'); padding: 15px;">
+            <div class="col-lg-4 " style="margin-bottom: 10px;">
+                <div class="card text-center shadow" style="min-height: 300px;">
+                    <div class="card-header alert-success">
+                        <strong >Eventos</strong>
+                    </div>
+                    <div class="card-body">
+                        <img src="assets/img/mkt_eventos.jpg" alt="imagem-evento" width="100%">
+                    </div>
+                    <div class="card-footer">
+                        <p class="text-muted">
+                            Ajudamos você a tornar seus eventos em Grandes momentos memoráveis.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 " style="margin-bottom: 10px;">
+                <div class="card text-center shadow" style="min-height: 300px;">
+                    <div class="card-header alert-success">
+                        <strong>Criatividade</strong>
+                    </div>
+                    <div class="card-body">
+                        <img src="assets/img/mkt_personalização.jpg" alt="imagem-personalização" width="100%">
+                    </div>
+                    <div class="card-footer">
+                        <p class="text-muted">
+                            Proporcionamos a você, Produtos com a sua cara, para que você possa mostrar sua originalidade.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 " style="margin-bottom: 10px;">
+                <div class="card text-center shadow" style="min-height: 300px;">
+                    <div class="card-header alert-success">
+                        <strong>Empresa</strong>
+                    </div>
+                    <div class="card-body">
+                        <img src="assets/img/mkt_empresa.jpg" alt="imagem-empresa" width="100%">
+                    </div>
+                    <div class="card-footer">
+                        <p class="text-muted">
+                            Levamos a sua marca,<br> até os seus clientes.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <footer id="footer" class="row bg-roxo" style="margin-top: 0px">
             <div class="col-xs-12 col-lg-9 text-white">
                 <address>
                     Rua José Augusto Pinto, 190, Pompéu
@@ -219,7 +277,22 @@
         </footer>
     </div>
 
-
+<!-- Modal -->
+<div class="modal fade " id="modalAnuncio" tabindex="-1" role="dialog" aria-labelledby="modalAnuncioLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-body text-center">
+         <img src="assets/img/Promocoes/promocao_pascoa.jpg" alt="Promoção de Páscoa" width="100%">
+         <br>
+         <p class="alert alert-success">Faça seu pedido pelo Whatsapp clicando no botão abaixo.</p>
+          <button class="btn btn-block btn-success" onclick="enviarPedido()"><i class="icone-whatsapp"></i> Faça Seu Pedido Aqui!</a></button> 
+        </div>
+        <div class="modal-footer">
+          <p class="text-muted">Promoção Válida até dia 18/04/2019.</p>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
     <!--Scripts-->
@@ -227,6 +300,21 @@
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/jquery-confirm/jquery-confirm.min.js"></script>
     <script src="assets/local/scripts.js"></script>
+    <script type="text/javascript">
+    $( document ).ready(function() {
+        if(sessionStorage.getItem('adsense') == 'N' || sessionStorage.getItem('adsense') == null){
+            $('#modalAnuncio').modal('show');
+            sessionStorage.setItem('adsense','S');
+        }
+    });
+
+
+    function enviarPedido(){
+        $('#modalAnuncio').modal('hide')
+        var msg = 'Olá, gostei desta promoção de Páscoa e desejo realizar meu pedido de 2 Canecas de Polímero por 25 reais.';
+        window.open('https://api.whatsapp.com/send?phone=553195760071&text='+msg,'blank');
+    }
+    </script>
 </body>
 
 </html>
